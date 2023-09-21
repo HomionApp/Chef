@@ -1,20 +1,20 @@
 package com.homion.chef.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
 @Builder
-@ToString
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ChefDTO {
     private String userName;
     private String firstName;
     private String lastName;
     private String email;
+    private String pan;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<AddressDTO> addressDTOList;
 }

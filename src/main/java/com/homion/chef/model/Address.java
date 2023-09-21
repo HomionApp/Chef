@@ -1,5 +1,6 @@
 package com.homion.chef.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,4 +26,10 @@ public class Address {
 
     @Column(name = "pincode", nullable = false)
     private String pincode;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "chef_id")
+    private Chef chef;
+
 }
